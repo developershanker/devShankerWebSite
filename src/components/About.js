@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Loader from './Loader';
  
 function About () {
-    return <div>
-        <h2>GeeksforGeeks is a computer science portal for geeks!</h2>
- 
-        Read more about us at :
-        <a href="https://www.geeksforgeeks.org/about/">
-            https://www.geeksforgeeks.org/about/
-        </a>
-    </div>
+    const [isLoading, setIsLoading] = useState(true)
+    return (
+    
+        
+            !isLoading? <div className="aboutContainer"></div> : <Loader/>
+        
+    
+    )
 }
 export default About;

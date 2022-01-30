@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
@@ -10,11 +10,15 @@ import ContactUs from "./components/ContactUs";
 import Home from "./components/Home";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
+import Footer from "./components/Footer";
 
 const App = () => {
 
 	const [expand, updateExpanded] = useState(false);
   const linkTextStyle = {}
+  useEffect(() => {
+    document.title = "Bhawana | Portfolio"
+    }, [])
   return (
     <Router>
       <Navbar
@@ -25,7 +29,7 @@ const App = () => {
       >
         <Container>
           <Navbar.Brand href="/">
-			  <text>Bhawana Shanker</text>
+			  <h1 style={{fontWeight:'bold'}}>Bs.</h1>
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
@@ -78,6 +82,7 @@ const App = () => {
         <Route exact path="/about" element={<About />}></Route>
         <Route exact path="/contact" element={<ContactUs />}></Route>
       </Routes>
+      <Footer/>
     </Router>
   );
 };
